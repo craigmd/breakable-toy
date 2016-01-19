@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: breakable-toy_development
+
+test:
+  <<: *default
+  database: breakable-toy_test
+
+production:
+  <<: *default
+  database: breakable-toy_production
+  username: breakable-toy
+  password: <%= ENV['BREAKABLE-TOY_DATABASE_PASSWORD'] %>
