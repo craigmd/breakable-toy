@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'players#index'
+  root 'current_matchups#index'
 
-  resource :players, only: [:show]
+  resource :players, only: :show
+  resource :current_matchups, only: :index
 end
