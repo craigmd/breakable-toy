@@ -12,5 +12,6 @@ class CreatePlayers < ActiveRecord::Migration
 
     add_index :players, :full_name
     add_index :players, :team_id
+    add_index :players, [:full_name, :position, :team_id], unique: true
   end
 end

@@ -89,12 +89,14 @@ ActiveRecord::Schema.define(version: 20160120173945) do
     t.datetime "updated_at",                                                    null: false
   end
 
+  add_index "players", ["full_name", "position", "team_id"], name: "index_players_on_full_name_and_position_and_team_id", unique: true, using: :btree
   add_index "players", ["full_name"], name: "index_players_on_full_name", using: :btree
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",       null: false
-    t.string   "abbr",       null: false
+    t.string   "alt_abbr",   null: false
+    t.string   "std_abbr",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

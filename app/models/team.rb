@@ -3,5 +3,6 @@ class Team < ActiveRecord::Base
   has_many :matchups
 
   validates :name, presence: true, uniqueness: true
-  validates :abbr, presence: true, uniqueness: true
+  validates :alt_abbr, presence: true, uniqueness: true
+  validates :std_abbr, presence: true, uniqueness: true
 end
