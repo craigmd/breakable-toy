@@ -33,29 +33,25 @@ Team.create(name: "Seattle Seahawks", alt_abbr: "SEA", std_abbr: "SEA")
 Team.create(name: "St. Louis Rams", alt_abbr: "STL", std_abbr: "STL")
 
 #Seed Periods
-Period.create(year: "2015", week: "1")
-Period.create(year: "2015", week: "2")
-Period.create(year: "2015", week: "3")
-Period.create(year: "2015", week: "4")
-Period.create(year: "2015", week: "5")
-Period.create(year: "2015", week: "6")
-Period.create(year: "2015", week: "7")
-Period.create(year: "2015", week: "8")
-Period.create(year: "2015", week: "9")
-Period.create(year: "2015", week: "10")
-Period.create(year: "2015", week: "11")
-Period.create(year: "2015", week: "12")
-Period.create(year: "2015", week: "13")
-Period.create(year: "2015", week: "14")
-Period.create(year: "2015", week: "15")
-Period.create(year: "2015", week: "16")
-Period.create(year: "2015", week: "17")
-
-#Seed Players
-CSV.foreach( "db/delimited_files/2014/dk_2014_1.csv", { headers: true, col_sep: ";" } ) do |row|
-  Player.create(full_name: row[3], position: row[4], team_id: Team.find_by(alt_abbr: row[5].upcase).id)
+[2014, 2015].each do |year|
+  17.times do |i|
+    Period.create(year: "#{year}", week: "#{i+1}")
+  end
 end
 
-CSV.foreach( "db/delimited_files/2014/dk_2014_2.csv", { headers: true, col_sep: ";" } ) do |row|
-  Player.create(full_name: row[3], position: row[4], team_id: Team.find_by(alt_abbr: row[5].upcase).id)
+#Seed Players
+[2014, 2015].each do |year|
+  17.times do |i|
+    CSV.foreach("db/delimited_files/#{year}/dk_#{year}_#{i+1}.csv", {headers: true, col_sep: ";"}) do |row|
+      Player.create(
+        full_name: row[3],
+        position: row[4],
+        team_id: Team.find_by(alt_abbr: row[5].upcase).id
+      ) if Player.find_by(
+        full_name: row[3],
+        position: row[4],
+        team_id: Team.find_by(alt_abbr: row[5].upcase).id
+      ).nil?
+    end
+  end
 end
