@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160120173945) do
   add_index "defensive_results", ["matchup_id"], name: "index_defensive_results_on_matchup_id", using: :btree
 
   create_table "matchups", force: :cascade do |t|
-    t.integer  "dk_salary",  null: false
+    t.string   "dk_salary",  null: false
     t.integer  "team_id",    null: false
     t.integer  "player_id",  null: false
     t.integer  "period_id",  null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160120173945) do
 
   add_index "matchups", ["period_id"], name: "index_matchups_on_period_id", using: :btree
   add_index "matchups", ["player_id"], name: "index_matchups_on_player_id", using: :btree
+  add_index "matchups", ["team_id", "player_id", "period_id"], name: "index_matchups_on_team_id_and_player_id_and_period_id", unique: true, using: :btree
   add_index "matchups", ["team_id"], name: "index_matchups_on_team_id", using: :btree
 
   create_table "offensive_results", force: :cascade do |t|
@@ -79,9 +80,12 @@ ActiveRecord::Schema.define(version: 20160120173945) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "periods", ["year", "week"], name: "index_periods_on_year_and_week", unique: true, using: :btree
+
   create_table "players", force: :cascade do |t|
     t.string   "full_name",                                                     null: false
     t.string   "position",                                                      null: false
+    t.string   "dk_number"
     t.string   "eligibility_flag", default: "0"
     t.string   "image",            default: "/fallback/default-player-img.png"
     t.integer  "team_id",                                                       null: false
@@ -89,7 +93,6 @@ ActiveRecord::Schema.define(version: 20160120173945) do
     t.datetime "updated_at",                                                    null: false
   end
 
-  add_index "players", ["full_name", "position", "team_id"], name: "index_players_on_full_name_and_position_and_team_id", unique: true, using: :btree
   add_index "players", ["full_name"], name: "index_players_on_full_name", using: :btree
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 

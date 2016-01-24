@@ -32,26 +32,54 @@ Team.create(name: "San Francisco 49ers", alt_abbr: "SFO", std_abbr: "SF")
 Team.create(name: "Seattle Seahawks", alt_abbr: "SEA", std_abbr: "SEA")
 Team.create(name: "St. Louis Rams", alt_abbr: "STL", std_abbr: "STL")
 
-#Seed Periods
 [2014, 2015].each do |year|
   17.times do |i|
+    #Seed Periods
     Period.create(year: "#{year}", week: "#{i+1}")
-  end
-end
 
-#Seed Players
-[2014, 2015].each do |year|
-  17.times do |i|
     CSV.foreach("db/delimited_files/#{year}/dk_#{year}_#{i+1}.csv", {headers: true, col_sep: ";"}) do |row|
+      name_split = row[3].split(", ")
+      @full_name = "#{name_split[1]} #{name_split[0]}"
+      @year = row[1]
+      @week = row[0]
+      @position = row[4]
+      @team = row[5].upcase
+      @opponent = row[7].upcase
+      @salary = row[9]
+
+      next if @opponent == "-"
+
+      def current_player_team
+        Team.find_by(alt_abbr: @team)
+      end
+
+      def current_player_opp
+        Team.find_by(alt_abbr: @opponent)
+      end
+
+      def current_player
+        Player.find_by(
+          full_name: @full_name,
+          position: @position,
+          team_id: current_player_team.id)
+      end
+
+      def current_period
+        Period.find_by(year: @year, week: @week)
+      end
+
+      # #Seed Players
       Player.create(
-        full_name: row[3],
-        position: row[4],
-        team_id: Team.find_by(alt_abbr: row[5].upcase).id
-      ) if Player.find_by(
-        full_name: row[3],
-        position: row[4],
-        team_id: Team.find_by(alt_abbr: row[5].upcase).id
-      ).nil?
+        full_name: @full_name,
+        position: @position,
+        team_id: current_player_team.id) if current_player.nil?
+
+      #Seed Matchups
+      Matchup.create(
+        player_id: current_player.id,
+        team_id: current_player_opp.id,
+        period_id: current_period.id,
+        dk_salary: @salary)
     end
   end
 end

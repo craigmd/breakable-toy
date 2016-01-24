@@ -391,35 +391,35 @@ Week;Year;GID;Name;Pos;Team;h/a;Oppt;DK points;DK salary
 1;2015;4450;Johnson, David;TE;sdg;h;det;0;2800
 1;2015;4553;Hanna, James;TE;dal;h;nyg;0;2500
 1;2015;4495;Harbor, Clay;TE;jac;h;car;0;2500
-1;2015;7005;Carolina DST;Def;car;a;jac;21;3100
-1;2015;7028;Seattle DST;Def;sea;a;stl;19;3400
-1;2015;7021;New York J DST;Def;nyj;h;cle;17;2900
-1;2015;7010;Denver DST;Def;den;h;bal;16;2800
-1;2015;7003;Baltimore DST;Def;bal;a;den;16;2700
-1;2015;7016;Miami DST;Def;mia;a;was;15;3000
-1;2015;7030;Tennessee DST;Def;ten;a;tam;15;2800
-1;2015;7027;San Francisco DST;Def;sfo;h;min;14;2800
-1;2015;7025;St. Louis DST;Def;stl;h;sea;14;2800
-1;2015;7011;Detroit DST;Def;det;a;sdg;13;2800
-1;2015;7020;New York G DST;Def;nyg;a;dal;12;2500
-1;2015;7007;Cincinnati DST;Def;cin;a;oak;10;3200
-1;2015;7015;Kansas City DST;Def;kan;a;hou;10;3000
-1;2015;7004;Buffalo DST;Def;buf;h;ind;9;2900
-1;2015;7014;Jacksonville DST;Def;jac;h;car;7;2700
-1;2015;7031;Washington DST;Def;was;h;mia;6;2600
-1;2015;7017;Minnesota DST;Def;min;a;sfo;6;2800
-1;2015;7023;Philadelphia DST;Def;phi;a;atl;5;2700
-1;2015;7001;Arizona DST;Def;ari;h;nor;5;2800
-1;2015;7018;New England DST;Def;nwe;h;pit;5;2700
-1;2015;7026;San Diego DST;Def;sdg;h;det;5;2800
-1;2015;7002;Atlanta DST;Def;atl;h;phi;4;2700
-1;2015;7012;Green Bay DST;Def;gnb;a;chi;4;3000
-1;2015;7032;Houston DST;Def;hou;h;kan;2;3000
-1;2015;7009;Dallas DST;Def;dal;h;nyg;2;2800
-1;2015;7022;Oakland DST;Def;oak;h;cin;1;2300
-1;2015;7019;New Orleans DST;Def;nor;a;ari;1;2700
-1;2015;7008;Cleveland DST;Def;cle;a;nyj;1;3100
-1;2015;7024;Pittsburgh DST;Def;pit;a;nwe;1;2800
-1;2015;7029;Tampa Bay DST;Def;tam;h;ten;0;2800
-1;2015;7013;Indianapolis DST;Def;ind;a;buf;0;2900
-1;2015;7006;Chicago DST;Def;chi;h;gnb;-1;2400
+1;2015;7005;Carolina Defense;Def;car;a;jac;21;3100
+1;2015;7028;Seattle Defense;Def;sea;a;stl;19;3400
+1;2015;7021;New York J Defense;Def;nyj;h;cle;17;2900
+1;2015;7010;Denver Defense;Def;den;h;bal;16;2800
+1;2015;7003;Baltimore Defense;Def;bal;a;den;16;2700
+1;2015;7016;Miami Defense;Def;mia;a;was;15;3000
+1;2015;7030;Tennessee Defense;Def;ten;a;tam;15;2800
+1;2015;7027;San Francisco Defense;Def;sfo;h;min;14;2800
+1;2015;7025;St. Louis Defense;Def;stl;h;sea;14;2800
+1;2015;7011;Detroit Defense;Def;det;a;sdg;13;2800
+1;2015;7020;New York G Defense;Def;nyg;a;dal;12;2500
+1;2015;7007;Cincinnati Defense;Def;cin;a;oak;10;3200
+1;2015;7015;Kansas City Defense;Def;kan;a;hou;10;3000
+1;2015;7004;Buffalo Defense;Def;buf;h;ind;9;2900
+1;2015;7014;Jacksonville Defense;Def;jac;h;car;7;2700
+1;2015;7031;Washington Defense;Def;was;h;mia;6;2600
+1;2015;7017;Minnesota Defense;Def;min;a;sfo;6;2800
+1;2015;7023;Philadelphia Defense;Def;phi;a;atl;5;2700
+1;2015;7001;Arizona Defense;Def;ari;h;nor;5;2800
+1;2015;7018;New England Defense;Def;nwe;h;pit;5;2700
+1;2015;7026;San Diego Defense;Def;sdg;h;det;5;2800
+1;2015;7002;Atlanta Defense;Def;atl;h;phi;4;2700
+1;2015;7012;Green Bay Defense;Def;gnb;a;chi;4;3000
+1;2015;7032;Houston Defense;Def;hou;h;kan;2;3000
+1;2015;7009;Dallas Defense;Def;dal;h;nyg;2;2800
+1;2015;7022;Oakland Defense;Def;oak;h;cin;1;2300
+1;2015;7019;New Orleans Defense;Def;nor;a;ari;1;2700
+1;2015;7008;Cleveland Defense;Def;cle;a;nyj;1;3100
+1;2015;7024;Pittsburgh Defense;Def;pit;a;nwe;1;2800
+1;2015;7029;Tampa Bay Defense;Def;tam;h;ten;0;2800
+1;2015;7013;Indianapolis Defense;Def;ind;a;buf;0;2900
+1;2015;7006;Chicago Defense;Def;chi;h;gnb;-1;2400

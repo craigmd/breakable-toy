@@ -6,5 +6,7 @@ class CreatePeriods < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :periods, [:year, :week], unique: true
   end
 end
