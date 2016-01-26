@@ -32,54 +32,127 @@ Team.create(name: "San Francisco 49ers", alt_abbr: "SFO", std_abbr: "SF")
 Team.create(name: "Seattle Seahawks", alt_abbr: "SEA", std_abbr: "SEA")
 Team.create(name: "St. Louis Rams", alt_abbr: "STL", std_abbr: "STL")
 
-[2014, 2015].each do |year|
-  17.times do |i|
-    #Seed Periods
-    Period.create(year: "#{year}", week: "#{i+1}")
+17.times do |i|
+  #Seed Periods
+  Period.create(year: "2015", week: "#{i+1}")
 
-    CSV.foreach("db/delimited_files/#{year}/dk_#{year}_#{i+1}.csv", {headers: true, col_sep: ";"}) do |row|
-      name_split = row[3].split(", ")
-      @full_name = "#{name_split[1]} #{name_split[0]}"
-      @year = row[1]
-      @week = row[0]
-      @position = row[4]
-      @team = row[5].upcase
-      @opponent = row[7].upcase
-      @salary = row[9]
+  CSV.foreach("db/delimited_files/2015/dk_2015_#{i+1}.csv", {headers: true, col_sep: ";"}) do |row|
+    names = row[3].split(", ")
+    @full_name = "#{names[1]} #{names[0]}"
+    @week = row[0]
+    @position = row[4]
+    @team = row[5].upcase
+    @opponent = row[7].upcase
+    @salary = row[9]
 
-      next if @opponent == "-"
+    next if @opponent == "-"
 
-      def current_player_team
-        Team.find_by(alt_abbr: @team)
-      end
+    def get_current_player_team
+      Team.find_by(alt_abbr: @team)
+    end
 
-      def current_player_opp
-        Team.find_by(alt_abbr: @opponent)
-      end
+    def get_current_player_opp
+      Team.find_by(alt_abbr: @opponent)
+    end
 
-      def current_player
-        Player.find_by(
-          full_name: @full_name,
-          position: @position,
-          team_id: current_player_team.id)
-      end
-
-      def current_period
-        Period.find_by(year: @year, week: @week)
-      end
-
-      # #Seed Players
-      Player.create(
+    def get_current_player
+      Player.find_by(
         full_name: @full_name,
         position: @position,
-        team_id: current_player_team.id) if current_player.nil?
-
-      #Seed Matchups
-      Matchup.create(
-        player_id: current_player.id,
-        team_id: current_player_opp.id,
-        period_id: current_period.id,
-        dk_salary: @salary)
+        team_id: get_current_player_team.id)
     end
+
+    def get_current_period
+      Period.find_by(year: "2015", week: @week)
+    end
+
+    # #Seed Players
+    Player.find_or_create_by(
+      full_name: @full_name,
+      position: @position,
+      team_id: get_current_player_team.id)
+
+    #Seed Matchups
+    Matchup.create(
+      player_id: get_current_player.id,
+      team_id: get_current_player_opp.id,
+      period_id: get_current_period.id,
+      dk_salary: @salary)
+  end
+end
+
+@off_stats = [
+  "passes_percentage",
+  "passes_completions",
+  "passes_yards_gross",
+  "passes_touchdowns",
+  "passes_interceptions",
+  "passing_2pt_conversions_succeeded",
+  "rushes_attempts",
+  "rushes_yards",
+  "rushes_touchdowns",
+  "rushing_2pt_conversions_succeeded",
+  "receptions_looks",
+  "receptions_total",
+  "receptions_yards",
+  "receptions_touchdowns",
+  "receiving_2pt_conversions_succeeded",
+  "fumbles_lost",
+  "fumbles_own_touchdowns",
+  "kickoff_return_touchdowns",
+  "punt_return_touchdowns"]
+
+Player.where.not(position: "Def").each do |player|
+  response = Stattleship.get_logs(player.team.std_abbr, player.full_name, 2015)
+  games = response["games"]
+  logs = response["game_logs"]
+
+  next if logs.nil?
+
+  Matchup.where(player_id: player.id).each do |matchup|
+    @off_stats.each do |off_stat|
+      instance_variable_set("@" + off_stat, 0)
+
+      logs.each_with_index do |log, i|
+        week = games[i]["interval_number"]
+
+        if off_stat == "passes_percentage"
+          value = log[off_stat].to_f
+        else
+          value = log[off_stat].to_i
+        end
+
+        instance_variable_set("@" + off_stat, value) if week == matchup.period.week
+      end
+    end
+
+    if @passes_percentage == 0
+      @passes_attempts = 0 #Though this may not be true, its the best we gots
+    else
+      @passes_attempts = (@passes_completions/@passes_percentage).round
+    end
+
+    #Seed Offensive Results
+    OffensiveResult.create(
+      matchup_id: matchup.id,
+      passing_att: @passes_attempts,
+      passing_comp: @passes_completions,
+      passing_yds: @passes_yards_gross,
+      passing_td: @passes_touchdowns,
+      passing_int: @passes_interceptions,
+      passing_2pt: @passing_2pt_conversions_succeeded,
+      rushing_att: @rushes_attempts,
+      rushing_yds: @rushes_yards,
+      rushing_td: @rushes_touchdowns,
+      rushing_2pt: @rushing_2pt_conversions_succeeded,
+      receiving_tar: @receptions_looks,
+      receiving_rec: @receptions_total,
+      receiving_yds: @receptions_yards,
+      receiving_td: @receptions_touchdowns,
+      receiving_2pt: @receiving_2pt_conversions_succeeded,
+      returns_ko: @kickoff_return_touchdowns,
+      returns_pnt: @punt_return_touchdowns,
+      fumbles_fl: @fumbles_lost,
+      fumbles_td: @fumbles_own_touchdowns)
   end
 end

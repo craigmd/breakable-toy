@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20160120173945) do
   enable_extension "plpgsql"
 
   create_table "defensive_results", force: :cascade do |t|
-    t.integer  "sack",       default: 0, null: false
-    t.integer  "int",        default: 0, null: false
-    t.integer  "int_td",     default: 0, null: false
-    t.integer  "saf",        default: 0, null: false
-    t.integer  "fumble_rec", default: 0, null: false
-    t.integer  "fumble_td",  default: 0, null: false
-    t.integer  "punt_blk",   default: 0, null: false
-    t.integer  "pa",         default: 0, null: false
+    t.integer  "sack",       default: 0
+    t.integer  "int",        default: 0
+    t.integer  "int_td",     default: 0
+    t.integer  "saf",        default: 0
+    t.integer  "fumble_rec", default: 0
+    t.integer  "fumble_td",  default: 0
+    t.integer  "punt_blk",   default: 0
+    t.integer  "pa",         default: 0
     t.integer  "matchup_id",             null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -47,25 +47,25 @@ ActiveRecord::Schema.define(version: 20160120173945) do
   add_index "matchups", ["team_id"], name: "index_matchups_on_team_id", using: :btree
 
   create_table "offensive_results", force: :cascade do |t|
-    t.integer  "passing_att",   default: 0, null: false
-    t.integer  "passing_comp",  default: 0, null: false
-    t.integer  "passing_yds",   default: 0, null: false
-    t.integer  "passing_td",    default: 0, null: false
-    t.integer  "passing_int",   default: 0, null: false
-    t.integer  "passing_2pt",   default: 0, null: false
-    t.integer  "rushing_att",   default: 0, null: false
-    t.integer  "rushing_yds",   default: 0, null: false
-    t.integer  "rushing_td",    default: 0, null: false
-    t.integer  "rushing_2pt",   default: 0, null: false
-    t.integer  "receiving_tar", default: 0, null: false
-    t.integer  "receiving_rec", default: 0, null: false
-    t.integer  "receiving_yds", default: 0, null: false
-    t.integer  "receiving_td",  default: 0, null: false
-    t.integer  "receiving_2pt", default: 0, null: false
-    t.integer  "fumbles_fl",    default: 0, null: false
-    t.integer  "fumbles_td",    default: 0, null: false
-    t.integer  "returns_ko",    default: 0, null: false
-    t.integer  "returns_pnt",   default: 0, null: false
+    t.integer  "passing_att",   default: 0
+    t.integer  "passing_comp",  default: 0
+    t.integer  "passing_yds",   default: 0
+    t.integer  "passing_td",    default: 0
+    t.integer  "passing_int",   default: 0
+    t.integer  "passing_2pt",   default: 0
+    t.integer  "rushing_att",   default: 0
+    t.integer  "rushing_yds",   default: 0
+    t.integer  "rushing_td",    default: 0
+    t.integer  "rushing_2pt",   default: 0
+    t.integer  "receiving_tar", default: 0
+    t.integer  "receiving_rec", default: 0
+    t.integer  "receiving_yds", default: 0
+    t.integer  "receiving_td",  default: 0
+    t.integer  "receiving_2pt", default: 0
+    t.integer  "fumbles_fl",    default: 0
+    t.integer  "fumbles_td",    default: 0
+    t.integer  "returns_ko",    default: 0
+    t.integer  "returns_pnt",   default: 0
     t.integer  "matchup_id",                null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
