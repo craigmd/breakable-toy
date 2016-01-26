@@ -14,3 +14,5 @@
 
 #ignore environment variables
 .env
+
+curl_tester
