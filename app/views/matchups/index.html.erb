@@ -1,1 +1,56 @@
-
+<div class="selected-players">
+</div>
+<div class="table-flexer">
+  <div class="select-position">
+    <div class="button active" id="select-qb"><span>QB</span></div>
+    <div class="button" id="select-rb"><span>RB</span></div>
+    <div class="button" id="select-wr"><span>WR</span></div>
+    <div class="button" id="select-te"><span>TE</span></div>
+    <div class="button" id="select-def"><span>DST</span></div>
+  </div>
+  <div class="table-container">
+    <table class="main-table">
+      <thead class="main-head">
+        <tr class="first-row-head">
+          <th colspan="3">Player</th>
+          <th colspan="2">Matchup</th>
+          <th colspan="3">Projections</th>
+          <th colspan="2">DVOA</th>
+          <th colspan="2">Season</th>
+        </tr>
+        <tr class="second-row-head">
+          <th>Add</th>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Team</th>
+          <th>Opp</th>
+          <th>Avg Proj</th>
+          <th>Imp Pnts</th>
+          <th>+/-</th>
+          <th>Player</th>
+          <th>Pos Def</th>
+          <th>FPPG</th>
+          <th>w/o TDs</th>
+        </tr>
+      </thead>
+      <tbody class="main-body">
+        <% @matchups.each do |matchup| %>
+          <tr class="<%= matchup.player.position %>">
+            <td class="add-player">+</td>
+            <td class="player-name"><%= link_to matchup.player.full_name, player_path(matchup.player) %></td>
+            <td><%= matchup.dk_salary %></td>
+            <td><%= matchup.player.team.std_abbr %></td>
+            <td><%= matchup.team.std_abbr %></td>
+            <td>12.8</td>
+            <td>14.3</td>
+            <td>-1.5</td>
+            <td>9.1%</td>
+            <td>-2.3%</td>
+            <td><%= OffensiveResult.fppg(matchup.player.offensive_results.last(16)) %></td>
+            <td><%= OffensiveResult.fppg(matchup.player.offensive_results.last(16), false) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

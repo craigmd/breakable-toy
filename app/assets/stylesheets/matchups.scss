@@ -1,0 +1,102 @@
+$main-red: #AF1411;
+$back-neutral: #E8E8E8;
+$table-border: #C8C8C8;
+$table-green: #007C29;
+$white: #FFF;
+$white-transparent: rgba(255, 255, 255, 0.4);
+$black: #000;
+$black-transparent: rgba(0, 0, 0, 0.4);
+
+.selected-players {
+  background: $white;
+  left: 0;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 27vmin;
+  z-index: -1;
+}
+
+.table-flexer {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-position {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5vh 0 0 27vmin;
+
+  div {
+    border-right: 2px solid $table-border;
+    display: table;
+    padding: 2vmin 2.5vmin;
+
+    &:last-child {
+      border: none;
+    }
+
+    span {
+      display: table-cell;
+      font-size: 2vmin;
+      font-weight: 700;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+
+  .active {
+    background: $main-red;
+  }
+}
+
+.table-container {
+  margin: 5vh 0 0 27vmin;
+}
+
+.main-table {
+  background: $white;
+  font-size: 0.8125rem;
+  margin: 0 auto;
+
+  tr,
+  td,
+  th {
+    border: 1px solid $table-border;
+    padding: 0.5vmin 1vmin;
+  }
+}
+
+.second-row-head {
+  th {
+    font-weight: 400;
+  }
+}
+
+.main-body {
+  td {
+    padding: 1vmin 0.5vmin;
+    text-align: center;
+
+    &.player-name {
+      padding: 1vmin 1vmin;
+      text-align: left;
+    }
+
+    &.add-player {
+      color: $table-green;
+      cursor: pointer;
+      font-size: 2.5vmin;
+      font-weight: 800;
+      padding: 0;
+    }
+  }
+}
+
+.RB,
+.WR,
+.TE,
+.Def {
+  display: none;
+}

@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require normalize
  *= require_tree .
  *= require_self
  */
@@ -20,7 +21,9 @@
 $main-red: #AF1411;
 $back-neutral: #E8E8E8;
 $white: #FFF;
+$white-transparent: rgba(255, 255, 255, 0.4);
 $black: #000;
+$black-transparent: rgba(0, 0, 0, 0.4);
 
 *,
 ::before,
@@ -78,11 +81,11 @@ li {
   a {
     font-weight: 800;
     color: $black;
-  }
 
-  a:hover {
-    font-weight: 800;
-    color: $main-red;
+    &:hover {
+      font-weight: 800;
+      color: $main-red;
+    }
   }
 
   strong {
@@ -113,5 +116,15 @@ li {
   li:hover {
     background: $main-red;
     border: none;
+  }
+}
+
+.button {
+  background: $black;
+  color: $white;
+
+  &:hover {
+    background: $main-red;
+    cursor: pointer;
   }
 }
