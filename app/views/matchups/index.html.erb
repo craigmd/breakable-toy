@@ -37,7 +37,7 @@
         <% @matchups.each do |matchup| %>
           <tr class="<%= matchup.player.position %>">
             <td class="add-player">+</td>
-            <td class="player-name"><%= link_to matchup.player.full_name, player_path(matchup.player) %></td>
+            <td class="player-name"><%= link_to matchup.player.full_name, player_path(matchup.player), target: "_blank" %></td>
             <td><%= matchup.dk_salary %></td>
             <td><%= matchup.player.team.std_abbr %></td>
             <td><%= matchup.team.std_abbr %></td>
