@@ -33,13 +33,13 @@ teams = [{name: "Baltimore Ravens", alt_abbr: "BAL", std_abbr: "BAL"},
 
 #Seed Teams
 teams.each do |team|
-  Team.create_or_find_by(team)
+  Team.find_or_create_by(team)
 end
 
 
 17.times do |i|
   #Seed Periods
-  Period.create_or_find_by(year: "2015", week: "#{i+1}")
+  Period.find_or_create_by(year: "2015", week: "#{i+1}")
 
   CSV.foreach("db/delimited_files/2015/dk_2015_#{i+1}.csv", {headers: true, col_sep: ";"}) do |row|
     names = row[3].split(", ")
@@ -78,7 +78,7 @@ end
       team_id: get_current_player_team.id)
 
     #Seed Matchups
-    Matchup.create_or_find_by(
+    Matchup.find_or_create_by(
       player_id: get_current_player.id,
       team_id: get_current_player_opp.id,
       period_id: get_current_period.id,
@@ -138,7 +138,7 @@ Player.where.not(position: "Def").each do |player|
     end
 
     #Seed Offensive Results
-    OffensiveResult.create_or_find_by(
+    OffensiveResult.find_or_create_by(
       matchup_id: matchup.id,
       passing_att: @passes_attempts,
       passing_comp: @passes_completions,
