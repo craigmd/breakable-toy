@@ -104,7 +104,7 @@ li {
   li {
     background: $black;
     font-weight: 700;
-    font-size: 2vmin;
+    font-size: 1rem;
     padding: 2vmin 2.75vmin;
 
     a {
@@ -127,4 +127,11 @@ li {
     background: $main-red;
     cursor: pointer;
   }
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100vw;
 }
