@@ -1,0 +1,84 @@
+$main-red: #AF1411;
+$back-neutral: #E8E8E8;
+$table-border: #C8C8C8;
+$table-green: #007C29;
+$white: #FFF;
+$white-transparent: rgba(255, 255, 255, 0.4);
+$black: #000;
+$black-transparent: rgba(0, 0, 0, 0.4);
+
+.player-info-wrapper {
+  background: $main-red;
+  display: flex;
+  color: $white;
+  height: 20vmax;
+  justify-content: center;
+  margin: 3vmin 0;
+  width: 100vw;
+}
+
+.player-info-container {
+  display: flex;
+  padding: 2.5vmax 0;
+}
+
+.player-stats-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-pic {
+  height: 15vmax;
+  margin-right: 4vmin;
+  width: 15vmax;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.player-info {
+  flex-direction: column;
+}
+
+.player-info-name {
+  font-size: 2.5rem;
+}
+
+.player-info-team {
+  font-size: 1.5rem
+}
+
+.game-logs-container {
+  margin-bottom: 3vmin;
+}
+
+.game-logs-header {
+  font-size: 1.5rem;
+  margin-bottom: 2vmin;
+}
+
+.game-logs {
+  text-align: center;
+
+  * {
+    border: 1px solid $table-border;
+  }
+
+  thead {
+    background: $black;
+    color: $white;
+  }
+
+  tr,
+  th,
+  td {
+    padding: 1.5vmin 1vmin;
+  }
+
+  tr:nth-child(2n) {
+    background: $white;
+  }
+}
