@@ -16,4 +16,6 @@ $(document).ready(function() {
     $(selectPositionsString).removeClass("active")
     $(this).addClass("active");
   });
+
+  $(".matchups-main-table").tablesort();
 });

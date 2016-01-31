@@ -101,21 +101,17 @@ li {
   margin-left: auto;
   margin-right: 4vmin;
 
-  li {
+  a {
     background: $black;
+    color: $white;
     font-weight: 700;
     font-size: 1rem;
-    padding: 2vmin 2.75vmin;
+    padding: 2.25vmin 3.75vmin;
 
-    a {
-      color: $white;
-      padding: 0.5vmin 1vmin;
+    &:hover {
+      background: $main-red;
+      border: none;
     }
-  }
-
-  li:hover {
-    background: $main-red;
-    border: none;
   }
 }
 
