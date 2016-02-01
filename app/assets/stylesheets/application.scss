@@ -69,6 +69,7 @@ li {
   position: relative;
   top: 1.5vh;
   width: 100vw;
+  z-index: 10;
 }
 
 .title {
@@ -106,7 +107,7 @@ li {
     color: $white;
     font-weight: 700;
     font-size: 1rem;
-    padding: 2.25vmin 3.75vmin;
+    padding: 2.125vmin 3.5vmin;
 
     &:hover {
       background: $main-red;
