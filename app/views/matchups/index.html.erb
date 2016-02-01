@@ -1,12 +1,45 @@
-<div class="selected-players">
+<div class="hide-scrolling-text">
+</div>
+<div class="favorites-wrapper">
+  <div class="favorites-container">
+    <h3>QB</h3>
+    <table id="favorite-qbs">
+      <tbody>
+      </tbody>
+    </table>
+
+    <h3>RB</h3>
+    <table id="favorite-rbs">
+      <tbody>
+      </tbody>
+    </table>
+
+    <h3>WR</h3>
+    <table id="favorite-wrs">
+      <tbody>
+      </tbody>
+    </table>
+
+    <h3>TE</h3>
+    <table id="favorite-tes">
+      <tbody>
+      </tbody>
+    </table>
+
+    <h3>DST</h3>
+    <table id="favorite-defs">
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 </div>
 <div class="table-flexer">
   <div class="select-position">
-    <div class="button active" id="select-qb"><span>QB</span></div>
-    <div class="button" id="select-rb"><span>RB</span></div>
-    <div class="button" id="select-wr"><span>WR</span></div>
-    <div class="button" id="select-te"><span>TE</span></div>
-    <div class="button" id="select-def"><span>DST</span></div>
+    <div class="button active" id="select-qbs"><span>QB</span></div>
+    <div class="button" id="select-rbs"><span>RB</span></div>
+    <div class="button" id="select-wrs"><span>WR</span></div>
+    <div class="button" id="select-tes"><span>TE</span></div>
+    <div class="button" id="select-defs"><span>DST</span></div>
   </div>
   <div class="matchups-table-container">
     <table class="matchups-main-table">
@@ -37,7 +70,7 @@
         <% @matchups.each do |matchup| %>
           <tr class="<%= matchup.player.position %>">
             <td class="add-player">+</td>
-            <td class="player-name"><%= link_to matchup.player.full_name, player_path(matchup.player), target: "_blank" %></td>
+            <td class="player-name" id="<%= matchup.player_id %>"><%= link_to matchup.player.full_name, player_path(matchup.player), target: "_blank" %></td>
             <td><%= matchup.dk_salary %></td>
             <td><%= matchup.player.team.std_abbr %></td>
             <td><%= matchup.team.std_abbr %></td>

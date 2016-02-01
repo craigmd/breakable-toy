@@ -7,13 +7,14 @@ $white-transparent: rgba(255, 255, 255, 0.4);
 $black: #000;
 $black-transparent: rgba(0, 0, 0, 0.4);
 
+
 .player-info-wrapper {
   background: $main-red;
   display: flex;
   color: $white;
   height: 20vmax;
   justify-content: center;
-  margin: 3vmin 0;
+  margin: 3vmin 0 3vmin;
   width: 100vw;
 }
 
