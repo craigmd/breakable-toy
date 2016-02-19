@@ -14,11 +14,11 @@ class Stattleship
     "nfl-" + s.gsub(/(\W )|[.' ]/, '-').downcase
   end
 
-  def self.get_logs(std_abbr, full_name, year, week = nil)
+  def self.get_logs(team_slug, player_slug, year, week = nil)
     base_params = {
-      season_id: self.convert_to_slug("#{year}") + "-#{year+1}",
-      team_id: self.convert_to_slug(std_abbr),
-      player_id: self.convert_to_slug(full_name)}
+      season_id: "nfl-#{year}-#{year + 1}",
+      team_id: team_slug,
+      player_id: player_slug}
     optional_params = {week: week}
 
     if week
