@@ -16,7 +16,7 @@ class Stattleship
 
   def self.get_logs(team_slug, player_slug, year, week = nil)
     base_params = {
-      season_id: "nfl-#{year}-#{year + 1}",
+      season_id: "nfl-#{year}-#{year+1}",
       team_id: team_slug,
       player_id: player_slug}
     optional_params = {week: week}

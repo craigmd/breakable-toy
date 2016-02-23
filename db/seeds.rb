@@ -1,35 +1,35 @@
-teams = [{name: "Baltimore Ravens", alt_abbr: "BAL", std_abbr: "BAL", Stattleship.convert_to_slug("Baltimore Ravens")},
-{name: "Cincinnati Bengals", alt_abbr: "CIN", std_abbr: "CIN", Stattleship.convert_to_slug("Cincinnati Bengals")},
-{name: "Cleveland Browns", alt_abbr: "CLE", std_abbr: "CLE", Stattleship.convert_to_slug("Cleveland Browns")},
-{name: "Pittsburgh Steelers", alt_abbr: "PIT", std_abbr: "PIT", Stattleship.convert_to_slug("Pittsburgh Steelers")},
-{name: "Houston Texans", alt_abbr: "HOU", std_abbr: "HOU", Stattleship.convert_to_slug("Houston Texans")},
-{name: "Indianapolis Colts", alt_abbr: "IND", std_abbr: "IND", Stattleship.convert_to_slug("Indianapolis Colts")},
-{name: "Jacksonville Jaguars", alt_abbr: "JAC", std_abbr: "JAC", Stattleship.convert_to_slug("Jacksonville Jaguars")},
-{name: "Tennessee Titans", alt_abbr: "TEN", std_abbr: "TEN", Stattleship.convert_to_slug("Tennessee Titans")},
-{name: "Buffalo Bills", alt_abbr: "BUF", std_abbr: "BUF", Stattleship.convert_to_slug("Buffalo Bills")},
-{name: "Miami Dolphins", alt_abbr: "MIA", std_abbr: "MIA", Stattleship.convert_to_slug("Miami Dolphins")},
-{name: "New England Patriots", alt_abbr: "NWE", std_abbr: "NE", Stattleship.convert_to_slug("New England Patriots")},
-{name: "New York Jets", alt_abbr: "NYJ", std_abbr: "NYJ", Stattleship.convert_to_slug("New York Jets")},
-{name: "Denver Broncos", alt_abbr: "DEN", std_abbr: "DEN", Stattleship.convert_to_slug("Denver Broncos")},
-{name: "Kansas City Chiefs", alt_abbr: "KAN", std_abbr: "KC", Stattleship.convert_to_slug("Kansas City Chiefs")},
-{name: "Oakland Raiders", alt_abbr: "OAK", std_abbr: "OAK", Stattleship.convert_to_slug("Oakland Raiders")},
-{name: "San Diego Chargers", alt_abbr: "SDG", std_abbr: "SD", Stattleship.convert_to_slug("San Diego Chargers")},
-{name: "Chicago Bears", alt_abbr: "CHI", std_abbr: "CHI", Stattleship.convert_to_slug("Chicago Bears")},
-{name: "Detriot Lions", alt_abbr: "DET", std_abbr: "DET", Stattleship.convert_to_slug("Detriot Lions")},
-{name: "Green Bay Packers", alt_abbr: "GNB", std_abbr: "GB", Stattleship.convert_to_slug("Green Bay Packers")},
-{name: "Minnesota Vikings", alt_abbr: "MIN", std_abbr: "MIN", Stattleship.convert_to_slug("Minnesota Vikings")},
-{name: "Atlanta Falcons", alt_abbr: "ATL", std_abbr: "ATL", Stattleship.convert_to_slug("Atlanta Falcons")},
-{name: "Carolina Panthers", alt_abbr: "CAR", std_abbr: "CAR", Stattleship.convert_to_slug("Carolina Panthers")},
-{name: "New Orleans Saints", alt_abbr: "NOR", std_abbr: "NO", Stattleship.convert_to_slug("New Orleans Saints")},
-{name: "Tampa Bay Buccaneers", alt_abbr: "TAM", std_abbr: "TB", Stattleship.convert_to_slug("Tampa Bay Buccaneers")},
-{name: "Dallas Cowboys", alt_abbr: "DAL", std_abbr: "DAL", Stattleship.convert_to_slug("Dallas Cowboys")},
-{name: "New York Giants", alt_abbr: "NYG", std_abbr: "NYG", Stattleship.convert_to_slug("New York Giants")},
-{name: "Philadelphia Eagles", alt_abbr: "PHI", std_abbr: "PHI", Stattleship.convert_to_slug("Philadelphia Eagles")},
-{name: "Washington Redskins", alt_abbr: "WAS", std_abbr: "WAS", Stattleship.convert_to_slug("Washington Redskins")},
-{name: "Arizona Cardinals", alt_abbr: "ARI", std_abbr: "ARI", Stattleship.convert_to_slug("Arizona Cardinals")},
-{name: "San Francisco 49ers", alt_abbr: "SFO", std_abbr: "SF", Stattleship.convert_to_slug("San Francisco 49ers")},
-{name: "Seattle Seahawks", alt_abbr: "SEA", std_abbr: "SEA", Stattleship.convert_to_slug("Seattle Seahawks")},
-{name: "St. Louis Rams", alt_abbr: "STL", std_abbr: "STL", Stattleship.convert_to_slug("St. Louis Rams")}]
+teams = [{name: "Baltimore Ravens", alt_abbr: "BAL", std_abbr: "BAL", team_slug: Stattleship.convert_to_slug("BAL")},
+{name: "Cincinnati Bengals", alt_abbr: "CIN", std_abbr: "CIN", team_slug: Stattleship.convert_to_slug("CIN")},
+{name: "Cleveland Browns", alt_abbr: "CLE", std_abbr: "CLE", team_slug: Stattleship.convert_to_slug("CLE")},
+{name: "Pittsburgh Steelers", alt_abbr: "PIT", std_abbr: "PIT", team_slug: Stattleship.convert_to_slug("PIT")},
+{name: "Houston Texans", alt_abbr: "HOU", std_abbr: "HOU", team_slug: Stattleship.convert_to_slug("HOU")},
+{name: "Indianapolis Colts", alt_abbr: "IND", std_abbr: "IND", team_slug: Stattleship.convert_to_slug("IND")},
+{name: "Jacksonville Jaguars", alt_abbr: "JAC", std_abbr: "JAC", team_slug: Stattleship.convert_to_slug("JAC")},
+{name: "Tennessee Titans", alt_abbr: "TEN", std_abbr: "TEN", team_slug: Stattleship.convert_to_slug("TEN")},
+{name: "Buffalo Bills", alt_abbr: "BUF", std_abbr: "BUF", team_slug: Stattleship.convert_to_slug("BUF")},
+{name: "Miami Dolphins", alt_abbr: "MIA", std_abbr: "MIA", team_slug: Stattleship.convert_to_slug("MIA")},
+{name: "New England Patriots", alt_abbr: "NWE", std_abbr: "NE", team_slug: Stattleship.convert_to_slug("NE")},
+{name: "New York Jets", alt_abbr: "NYJ", std_abbr: "NYJ", team_slug: Stattleship.convert_to_slug("NYJ")},
+{name: "Denver Broncos", alt_abbr: "DEN", std_abbr: "DEN", team_slug: Stattleship.convert_to_slug("DEN")},
+{name: "Kansas City Chiefs", alt_abbr: "KAN", std_abbr: "KC", team_slug: Stattleship.convert_to_slug("KC")},
+{name: "Oakland Raiders", alt_abbr: "OAK", std_abbr: "OAK", team_slug: Stattleship.convert_to_slug("OAK")},
+{name: "San Diego Chargers", alt_abbr: "SDG", std_abbr: "SD", team_slug: Stattleship.convert_to_slug("SD")},
+{name: "Chicago Bears", alt_abbr: "CHI", std_abbr: "CHI", team_slug: Stattleship.convert_to_slug("CHI")},
+{name: "Detriot Lions", alt_abbr: "DET", std_abbr: "DET", team_slug: Stattleship.convert_to_slug("DET")},
+{name: "Green Bay Packers", alt_abbr: "GNB", std_abbr: "GB", team_slug: Stattleship.convert_to_slug("GB")},
+{name: "Minnesota Vikings", alt_abbr: "MIN", std_abbr: "MIN", team_slug: Stattleship.convert_to_slug("MIN")},
+{name: "Atlanta Falcons", alt_abbr: "ATL", std_abbr: "ATL", team_slug: Stattleship.convert_to_slug("ATL")},
+{name: "Carolina Panthers", alt_abbr: "CAR", std_abbr: "CAR", team_slug: Stattleship.convert_to_slug("CAR")},
+{name: "New Orleans Saints", alt_abbr: "NOR", std_abbr: "NO", team_slug: Stattleship.convert_to_slug("NO")},
+{name: "Tampa Bay Buccaneers", alt_abbr: "TAM", std_abbr: "TB", team_slug: Stattleship.convert_to_slug("TB")},
+{name: "Dallas Cowboys", alt_abbr: "DAL", std_abbr: "DAL", team_slug: Stattleship.convert_to_slug("DAL")},
+{name: "New York Giants", alt_abbr: "NYG", std_abbr: "NYG", team_slug: Stattleship.convert_to_slug("NYG")},
+{name: "Philadelphia Eagles", alt_abbr: "PHI", std_abbr: "PHI", team_slug: Stattleship.convert_to_slug("PHI")},
+{name: "Washington Redskins", alt_abbr: "WAS", std_abbr: "WAS", team_slug: Stattleship.convert_to_slug("WAS")},
+{name: "Arizona Cardinals", alt_abbr: "ARI", std_abbr: "ARI", team_slug: Stattleship.convert_to_slug("ARI")},
+{name: "San Francisco 49ers", alt_abbr: "SFO", std_abbr: "SF", team_slug: Stattleship.convert_to_slug("SF")},
+{name: "Seattle Seahawks", alt_abbr: "SEA", std_abbr: "SEA", team_slug: Stattleship.convert_to_slug("SEA")},
+{name: "St. Louis Rams", alt_abbr: "STL", std_abbr: "STL", team_slug: Stattleship.convert_to_slug("STL")}]
 
 #Seed Teams
 teams.each do |team|
@@ -74,7 +74,7 @@ end
     Player.find_or_create_by(
       full_name: @full_name,
       position: @position,
-      stattleship_slug: Stattleship.convert_to_slug(@full_name)
+      player_slug: Stattleship.convert_to_slug(@full_name),
       team_id: get_current_player_team.id)
 
     #Seed Matchups
@@ -113,7 +113,7 @@ Player.where.not(position: "Def").each do |player| #do defenses later
   logs = response["game_logs"]
 
   if logs.nil?
-    player.stattleship_slug = nil
+    player.player_slug = "fix"
     next
   end
 

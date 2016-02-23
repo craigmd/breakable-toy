@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219170734) do
+ActiveRecord::Schema.define(version: 20160120173945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,15 +83,15 @@ ActiveRecord::Schema.define(version: 20160219170734) do
   add_index "periods", ["year", "week"], name: "index_periods_on_year_and_week", unique: true, using: :btree
 
   create_table "players", force: :cascade do |t|
-    t.string   "full_name",                                                     null: false
-    t.string   "position",                                                      null: false
+    t.string   "full_name",                                           null: false
+    t.string   "position",                                            null: false
     t.string   "dk_number"
     t.string   "eligibility_flag", default: "0"
-    t.string   "image",            default: "/fallback/default-player-img.png"
-    t.integer  "team_id",                                                       null: false
-    t.datetime "created_at",                                                    null: false
-    t.datetime "updated_at",                                                    null: false
+    t.string   "image_url",        default: "default-player-img.png"
     t.string   "player_slug"
+    t.integer  "team_id",                                             null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
   add_index "players", ["full_name"], name: "index_players_on_full_name", using: :btree
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160219170734) do
     t.string   "name",       null: false
     t.string   "alt_abbr",   null: false
     t.string   "std_abbr",   null: false
+    t.string   "team_slug",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
