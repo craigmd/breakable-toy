@@ -1,7 +1,7 @@
 <div class="player-info-wrapper">
   <div class="player-info-container">
     <div class="player-pic">
-      <%= image_tag("default-player-img.png") %>
+      <%= image_tag(@player.image_url) %>
     </div>
     <ul class="player-info">
       <li><h3 class="player-info-name"><%= @player.full_name %></h3></li>

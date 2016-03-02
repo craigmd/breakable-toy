@@ -5,9 +5,9 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :position, null: false
       t.string :dk_number, unique: true
       t.string :eligibility_flag, default: "0"
-      t.string :image, default: "default-player-img.png"
+      t.string :image_url, default: "default-player-img.png"
+      t.string :player_slug
       t.belongs_to :team, null: false
-
       t.timestamps null: false
     end
 
