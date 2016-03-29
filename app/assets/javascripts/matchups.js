@@ -11,7 +11,10 @@ $(document).ready(function() {
   //Fixes the position of the logo
 
   if (location.pathname == "/matchups") {
-    $("#home").css("position", "fixed")
+    $("#home").css({
+      "position": "fixed",
+      "top": "20px"
+    })
   }
 
   //Hides and shows rows based on their position class
@@ -28,10 +31,6 @@ $(document).ready(function() {
     $(selectPositionSelectors).removeClass("active")
     $(this).addClass("active");
   });
-
-  //Makes the tables sortable with the jQuery plugin TableSort
-
-  $(".matchups-main-table").tablesort();
 
   //Adds a player to the favorites list and hides it in the main table
 
