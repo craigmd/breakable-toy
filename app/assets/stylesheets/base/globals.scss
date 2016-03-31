@@ -1,9 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic,800);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
 
-*,
-::before,
-::after {
+*, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -17,15 +15,11 @@ body {
   width: 100vw;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
   font-family: 'Oswald', sans-serif;
 }
 
-a,
-a:visited {
+a, a:visited {
   color: $black;
   text-decoration: none;
 }
@@ -38,25 +32,26 @@ li {
   list-style: none;
 }
 
+.page-wrapper {
+  padding: 0 4vmin;
+}
+
 .top-bar {
-  border: 1px solid green;
+  border: 1px solid red;
   align-items: center;
   background: transparent;
   display: flex;
-  height: 10vh;
+  min-height: 10vh;
   position: relative;
-  width: 100vw;
+  width: 100%;
   z-index: 10;
 }
 
 .title {
-  border: 1px solid green;
-  font-size: 3vmin;
-  margin-left: 4vmin;
+  font-size: 1rem;
 
   a {
     font-weight: 800;
-    color: $black;
 
     &:hover {
       font-weight: 800;
@@ -70,33 +65,99 @@ li {
   }
 }
 
-.nav-bar {
-  display: flex;
+nav {
   height: 100%;
-  align-items: center;
   margin-left: auto;
-  margin-right: 4vmin;
 
-  a {
-    background: $black;
+  .toggle-nav {
     color: $white;
     font-weight: 700;
-    font-size: 1rem;
-    padding: 2.125vmin 3.5vmin;
+    font-size: 1.28rem;
+    margin-right: 2px;
+  }
 
-    &:hover {
-      background: $main-red;
-      border: none;
+  .menu {
+    display: none;
+    position: absolute;
+    top: 11vh;
+    right: 0;
+
+    li {
+      margin-bottom: 9vmin;
+    }
+
+    a {
+      font-weight: 700;
+      font-size: 0.79rem;
+      padding: 3.5vmin 5vmin;
+      @include button;
     }
   }
 }
 
-.button {
-  background: $black;
-  color: $white;
 
-  &:hover {
-    background: $main-red;
-    cursor: pointer;
+/* Phone - Landscape
+==================================*/
+@media screen and (min-width: 640px) and (max-width: 774px) and (orientation: landscape) {
+  .top-bar {
+    min-height: 20vh;
+  }
+
+  nav {
+    .menu {
+      top: 20vh;
+    }
+  }
+}
+
+/* Tablet - Portrait
+==================================*/
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .title {
+    font-size: 1.43rem;
+  }
+
+  nav {
+    .toggle-nav {
+      font-size: 2rem;
+    }
+
+    .menu {
+      li {
+        margin-bottom: 9vmin;
+      }
+
+      a {
+        font-size: 1.14rem;
+      }
+    }
+  }
+}
+
+/* Tablet - Landscape / Desktop
+==================================*/
+@media screen and (min-width: 1024px) {
+  .top-bar {
+    min-height: 15vh;
+  }
+
+  .title {
+    font-size: 1.57rem;
+  }
+
+  nav {
+    .toggle-nav {
+      font-size: 2rem;
+    }
+
+    .menu {
+      li {
+        margin-bottom: 9vmin;
+      }
+
+      a {
+        font-size: 1.14rem;
+      }
+    }
   }
 }
