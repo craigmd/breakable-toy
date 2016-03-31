@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+  //Responsive Nav
+
+  $("#toggle-nav").click(function(e) {
+    e.preventDefault();
+    $("#menu").toggle();
+  });
+
   var relatedPositionElements = [["select-qbs", "QB", "favorite-qbs"],
       ["select-rbs", "RB", "favorite-rbs"],
       ["select-wrs", "WR", "favorite-wrs"],

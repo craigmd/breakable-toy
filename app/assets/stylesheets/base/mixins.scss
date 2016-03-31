@@ -1,0 +1,15 @@
+@mixin col-flex {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin button {
+  background: $black;
+  color: $white;
+
+  &:hover {
+    background: $main-red;
+    cursor: pointer;
+  }
+}

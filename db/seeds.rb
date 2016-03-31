@@ -1,90 +1,90 @@
-# teams = [{name: "Baltimore Ravens", alt_abbr: "BAL", std_abbr: "BAL", team_slug: Stattleship.convert_to_slug("BAL")},
-# {name: "Cincinnati Bengals", alt_abbr: "CIN", std_abbr: "CIN", team_slug: Stattleship.convert_to_slug("CIN")},
-# {name: "Cleveland Browns", alt_abbr: "CLE", std_abbr: "CLE", team_slug: Stattleship.convert_to_slug("CLE")},
-# {name: "Pittsburgh Steelers", alt_abbr: "PIT", std_abbr: "PIT", team_slug: Stattleship.convert_to_slug("PIT")},
-# {name: "Houston Texans", alt_abbr: "HOU", std_abbr: "HOU", team_slug: Stattleship.convert_to_slug("HOU")},
-# {name: "Indianapolis Colts", alt_abbr: "IND", std_abbr: "IND", team_slug: Stattleship.convert_to_slug("IND")},
-# {name: "Jacksonville Jaguars", alt_abbr: "JAC", std_abbr: "JAC", team_slug: Stattleship.convert_to_slug("JAC")},
-# {name: "Tennessee Titans", alt_abbr: "TEN", std_abbr: "TEN", team_slug: Stattleship.convert_to_slug("TEN")},
-# {name: "Buffalo Bills", alt_abbr: "BUF", std_abbr: "BUF", team_slug: Stattleship.convert_to_slug("BUF")},
-# {name: "Miami Dolphins", alt_abbr: "MIA", std_abbr: "MIA", team_slug: Stattleship.convert_to_slug("MIA")},
-# {name: "New England Patriots", alt_abbr: "NWE", std_abbr: "NE", team_slug: Stattleship.convert_to_slug("NE")},
-# {name: "New York Jets", alt_abbr: "NYJ", std_abbr: "NYJ", team_slug: Stattleship.convert_to_slug("NYJ")},
-# {name: "Denver Broncos", alt_abbr: "DEN", std_abbr: "DEN", team_slug: Stattleship.convert_to_slug("DEN")},
-# {name: "Kansas City Chiefs", alt_abbr: "KAN", std_abbr: "KC", team_slug: Stattleship.convert_to_slug("KC")},
-# {name: "Oakland Raiders", alt_abbr: "OAK", std_abbr: "OAK", team_slug: Stattleship.convert_to_slug("OAK")},
-# {name: "San Diego Chargers", alt_abbr: "SDG", std_abbr: "SD", team_slug: Stattleship.convert_to_slug("SD")},
-# {name: "Chicago Bears", alt_abbr: "CHI", std_abbr: "CHI", team_slug: Stattleship.convert_to_slug("CHI")},
-# {name: "Detriot Lions", alt_abbr: "DET", std_abbr: "DET", team_slug: Stattleship.convert_to_slug("DET")},
-# {name: "Green Bay Packers", alt_abbr: "GNB", std_abbr: "GB", team_slug: Stattleship.convert_to_slug("GB")},
-# {name: "Minnesota Vikings", alt_abbr: "MIN", std_abbr: "MIN", team_slug: Stattleship.convert_to_slug("MIN")},
-# {name: "Atlanta Falcons", alt_abbr: "ATL", std_abbr: "ATL", team_slug: Stattleship.convert_to_slug("ATL")},
-# {name: "Carolina Panthers", alt_abbr: "CAR", std_abbr: "CAR", team_slug: Stattleship.convert_to_slug("CAR")},
-# {name: "New Orleans Saints", alt_abbr: "NOR", std_abbr: "NO", team_slug: Stattleship.convert_to_slug("NO")},
-# {name: "Tampa Bay Buccaneers", alt_abbr: "TAM", std_abbr: "TB", team_slug: Stattleship.convert_to_slug("TB")},
-# {name: "Dallas Cowboys", alt_abbr: "DAL", std_abbr: "DAL", team_slug: Stattleship.convert_to_slug("DAL")},
-# {name: "New York Giants", alt_abbr: "NYG", std_abbr: "NYG", team_slug: Stattleship.convert_to_slug("NYG")},
-# {name: "Philadelphia Eagles", alt_abbr: "PHI", std_abbr: "PHI", team_slug: Stattleship.convert_to_slug("PHI")},
-# {name: "Washington Redskins", alt_abbr: "WAS", std_abbr: "WAS", team_slug: Stattleship.convert_to_slug("WAS")},
-# {name: "Arizona Cardinals", alt_abbr: "ARI", std_abbr: "ARI", team_slug: Stattleship.convert_to_slug("ARI")},
-# {name: "San Francisco 49ers", alt_abbr: "SFO", std_abbr: "SF", team_slug: Stattleship.convert_to_slug("SF")},
-# {name: "Seattle Seahawks", alt_abbr: "SEA", std_abbr: "SEA", team_slug: Stattleship.convert_to_slug("SEA")},
-# {name: "St. Louis Rams", alt_abbr: "STL", std_abbr: "STL", team_slug: Stattleship.convert_to_slug("STL")}]
-#
-# #Seed Teams
-# teams.each do |team|
-#   Team.find_or_create_by(team)
-# end
-#
-# 17.times do |i|
-#   #Seed Periods
-#   Period.find_or_create_by(year: "2015", week: "#{i+1}")
-#
-#   CSV.foreach("db/delimited_files/2015/dk_2015_#{i+1}.csv", {headers: true, col_sep: ";"}) do |row|
-#     names = row[3].split(", ")
-#     @full_name = "#{names[1]} #{names[0]}"
-#     @week = row[0]
-#     @position = row[4]
-#     @team = row[5].upcase
-#     @opponent = row[7].upcase
-#     @salary = row[9]
-#
-#     next if @opponent == "-"
-#
-#     def get_current_player_team
-#       Team.find_by(alt_abbr: @team)
-#     end
-#
-#     def get_current_player_opp
-#       Team.find_by(alt_abbr: @opponent)
-#     end
-#
-#     def get_current_player
-#       Player.find_by(
-#         full_name: @full_name,
-#         position: @position,
-#         team_id: get_current_player_team.id)
-#     end
-#
-#     def get_current_period
-#       Period.find_by(year: "2015", week: @week)
-#     end
-#
-#     # #Seed Players
-#     Player.find_or_create_by(
-#       full_name: @full_name,
-#       position: @position,
-#       player_slug: Stattleship.convert_to_slug(@full_name),
-#       team_id: get_current_player_team.id)
-#
-#     #Seed Matchups
-#     Matchup.find_or_create_by(
-#       player_id: get_current_player.id,
-#       team_id: get_current_player_opp.id,
-#       period_id: get_current_period.id,
-#       dk_salary: @salary)
-#   end
-# end
+teams = [{name: "Baltimore Ravens", alt_abbr: "BAL", std_abbr: "BAL", team_slug: Stattleship.convert_to_slug("BAL")},
+{name: "Cincinnati Bengals", alt_abbr: "CIN", std_abbr: "CIN", team_slug: Stattleship.convert_to_slug("CIN")},
+{name: "Cleveland Browns", alt_abbr: "CLE", std_abbr: "CLE", team_slug: Stattleship.convert_to_slug("CLE")},
+{name: "Pittsburgh Steelers", alt_abbr: "PIT", std_abbr: "PIT", team_slug: Stattleship.convert_to_slug("PIT")},
+{name: "Houston Texans", alt_abbr: "HOU", std_abbr: "HOU", team_slug: Stattleship.convert_to_slug("HOU")},
+{name: "Indianapolis Colts", alt_abbr: "IND", std_abbr: "IND", team_slug: Stattleship.convert_to_slug("IND")},
+{name: "Jacksonville Jaguars", alt_abbr: "JAC", std_abbr: "JAC", team_slug: Stattleship.convert_to_slug("JAC")},
+{name: "Tennessee Titans", alt_abbr: "TEN", std_abbr: "TEN", team_slug: Stattleship.convert_to_slug("TEN")},
+{name: "Buffalo Bills", alt_abbr: "BUF", std_abbr: "BUF", team_slug: Stattleship.convert_to_slug("BUF")},
+{name: "Miami Dolphins", alt_abbr: "MIA", std_abbr: "MIA", team_slug: Stattleship.convert_to_slug("MIA")},
+{name: "New England Patriots", alt_abbr: "NWE", std_abbr: "NE", team_slug: Stattleship.convert_to_slug("NE")},
+{name: "New York Jets", alt_abbr: "NYJ", std_abbr: "NYJ", team_slug: Stattleship.convert_to_slug("NYJ")},
+{name: "Denver Broncos", alt_abbr: "DEN", std_abbr: "DEN", team_slug: Stattleship.convert_to_slug("DEN")},
+{name: "Kansas City Chiefs", alt_abbr: "KAN", std_abbr: "KC", team_slug: Stattleship.convert_to_slug("KC")},
+{name: "Oakland Raiders", alt_abbr: "OAK", std_abbr: "OAK", team_slug: Stattleship.convert_to_slug("OAK")},
+{name: "San Diego Chargers", alt_abbr: "SDG", std_abbr: "SD", team_slug: Stattleship.convert_to_slug("SD")},
+{name: "Chicago Bears", alt_abbr: "CHI", std_abbr: "CHI", team_slug: Stattleship.convert_to_slug("CHI")},
+{name: "Detriot Lions", alt_abbr: "DET", std_abbr: "DET", team_slug: Stattleship.convert_to_slug("DET")},
+{name: "Green Bay Packers", alt_abbr: "GNB", std_abbr: "GB", team_slug: Stattleship.convert_to_slug("GB")},
+{name: "Minnesota Vikings", alt_abbr: "MIN", std_abbr: "MIN", team_slug: Stattleship.convert_to_slug("MIN")},
+{name: "Atlanta Falcons", alt_abbr: "ATL", std_abbr: "ATL", team_slug: Stattleship.convert_to_slug("ATL")},
+{name: "Carolina Panthers", alt_abbr: "CAR", std_abbr: "CAR", team_slug: Stattleship.convert_to_slug("CAR")},
+{name: "New Orleans Saints", alt_abbr: "NOR", std_abbr: "NO", team_slug: Stattleship.convert_to_slug("NO")},
+{name: "Tampa Bay Buccaneers", alt_abbr: "TAM", std_abbr: "TB", team_slug: Stattleship.convert_to_slug("TB")},
+{name: "Dallas Cowboys", alt_abbr: "DAL", std_abbr: "DAL", team_slug: Stattleship.convert_to_slug("DAL")},
+{name: "New York Giants", alt_abbr: "NYG", std_abbr: "NYG", team_slug: Stattleship.convert_to_slug("NYG")},
+{name: "Philadelphia Eagles", alt_abbr: "PHI", std_abbr: "PHI", team_slug: Stattleship.convert_to_slug("PHI")},
+{name: "Washington Redskins", alt_abbr: "WAS", std_abbr: "WAS", team_slug: Stattleship.convert_to_slug("WAS")},
+{name: "Arizona Cardinals", alt_abbr: "ARI", std_abbr: "ARI", team_slug: Stattleship.convert_to_slug("ARI")},
+{name: "San Francisco 49ers", alt_abbr: "SFO", std_abbr: "SF", team_slug: Stattleship.convert_to_slug("SF")},
+{name: "Seattle Seahawks", alt_abbr: "SEA", std_abbr: "SEA", team_slug: Stattleship.convert_to_slug("SEA")},
+{name: "St. Louis Rams", alt_abbr: "STL", std_abbr: "STL", team_slug: Stattleship.convert_to_slug("STL")}]
+
+#Seed Teams
+teams.each do |team|
+  Team.find_or_create_by(team)
+end
+
+17.times do |i|
+  #Seed Periods
+  Period.find_or_create_by(year: "2015", week: "#{i+1}")
+
+  CSV.foreach("db/delimited_files/2015/dk_2015_#{i+1}.csv", {headers: true, col_sep: ";"}) do |row|
+    names = row[3].split(", ")
+    @full_name = "#{names[1]} #{names[0]}"
+    @week = row[0]
+    @position = row[4]
+    @team = row[5].upcase
+    @opponent = row[7].upcase
+    @salary = row[9]
+
+    next if @opponent == "-"
+
+    def get_current_player_team
+      Team.find_by(alt_abbr: @team)
+    end
+
+    def get_current_player_opp
+      Team.find_by(alt_abbr: @opponent)
+    end
+
+    def get_current_player
+      Player.find_by(
+        full_name: @full_name,
+        position: @position,
+        team_id: get_current_player_team.id)
+    end
+
+    def get_current_period
+      Period.find_by(year: "2015", week: @week)
+    end
+
+    # #Seed Players
+    Player.find_or_create_by(
+      full_name: @full_name,
+      position: @position,
+      player_slug: Stattleship.convert_to_slug(@full_name),
+      team_id: get_current_player_team.id)
+
+    #Seed Matchups
+    Matchup.find_or_create_by(
+      player_id: get_current_player.id,
+      team_id: get_current_player_opp.id,
+      period_id: get_current_period.id,
+      dk_salary: @salary)
+  end
+end
 
 @off_stats = [
   "passes_percentage",

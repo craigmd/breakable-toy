@@ -2,7 +2,12 @@
   <div class="title">
     <h2 id="home"><%= link_to "FF<strong>G</strong>ut<strong>C</strong>heck".html_safe, root_path %></h2>
   </div>
-  <ul class="nav-bar">
-    <li><%= link_to "Research", matchups_path %></li>
-  </ul>
+  <nav>
+    <a class="toggle-nav" id="toggle-nav" href="#">&#9776;</a>
+
+    <ul class="menu" id="menu">
+      <li><%= link_to "Research", matchups_path %></li>
+      <li><a href="#">Sign In</a></li>
+    </ul>
+  </nav>
 </div>

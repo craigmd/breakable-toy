@@ -2,19 +2,20 @@
 <html>
   <head>
     <title>FFGutCheck</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" media="screen" charset="utf-8">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div class="main-wrapper">
+    <div class="background-wrapper">
       <div class="overlay">
+        <div class="page-wrapper">
+          <%= render 'layouts/nav' %>
 
-      <%= render 'layouts/nav' %>
-
-      <%= yield %>
-
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>
